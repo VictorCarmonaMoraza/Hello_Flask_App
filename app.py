@@ -18,6 +18,11 @@ def about():
 def greet(name):
     return render_template('greet.html', name=name)
 
+# ⚡ Ruta de error 404 personalizada
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 # Run the App
 if __name__ == "__main__":
     ## En entorno de produccion no se pone debug=True
