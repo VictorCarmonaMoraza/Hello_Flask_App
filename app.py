@@ -6,8 +6,17 @@ app = Flask(__name__)
 
 # Define a Route
 @app.route('/')
-def hello():
-    return render_template('index.html', name="Flask Developer")
+def home():
+    return render_template('index.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+##Ruta de saludo
+@app.route('/greet/<name>')
+def greet(name):
+    return render_template('greet.html', name=name)
 
 # Run the App
 if __name__ == "__main__":
